@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- 
+    Accept:application/sparql-results+json,*/*;q=0.9
+    Content-Type:application/x-www-form-urlencoded
+
+    https://centrale-vindplaats.lblod.info/sparql -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="application/x-www-form-urlencoded" content="application/sparql-results+json,*/*;q=0.9">
+    <!-- meta for vlaan coomponent begin -->
+    <meta name="msapplication-square70x70logo" content="https://ui.vlaanderen.be/3.latest/icons/app-icon/tile-small.png">
+    <meta name="msapplication-square150x150logo" content="https://ui.vlaanderen.be/3.latest/icons/app-icon/tile-medium.png">
+    <meta name="msapplication-wide310x150logo" content="https://ui.vlaanderen.be/3.latest/icons/app-icon/tile-wide.png">
+    <meta name="msapplication-square310x310logo" content="https://ui.vlaanderen.be/3.latest/icons/app-icon/tile-large.png">
+    <meta name="msapplication-TileColor" content="#FFE615">
+    <!-- meta for vlaan coomponent end --> 
+    <title>InformProject</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{content-for "head"}}
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/inform-project.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    
+    {{content-for "head-footer"}}
+  </head>
+  <body>
+    {{content-for "body"}}
+    <AuLoader @padding="small" />
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/inform-project.js"></script>
+
+    {{content-for "body-footer"}}
+  </body>
+</html>

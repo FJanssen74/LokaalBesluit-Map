@@ -1,0 +1,100 @@
+<div class="search">
+<AuLabel for="input-block">Ontdek wat onze vertegenwoordigers voor ons beslissen.</AuLabel>
+<PowerSelect
+  @width="block"
+  title="kie gemeente" 
+  @icon="search"
+  @allowClear={{true}}
+  @disabled={{this.disabled}}
+  @searchEnabled={{true}}
+  @loadingMessage="Aan het laden..."
+  @noMatchesMessage="Geen resultaten"
+  @searchPlaceholder="Typ om te zoeken"
+  @identifier={{this.identifier}}
+  @options={{this.searchAgenda}}
+  @selected={{this.selected.bestuurseenheidnaam}}
+  @searchField="bestuurseenheidnaam"
+  @placeholder="Agenda beschikbaar" 
+  @onChange={{this.onChange}} as |selected|>
+  <strong>{{selected.bestuurseenheidnaam}}</strong> ({{selected.geplande_Date}})
+</PowerSelect>
+</div>
+{{!-- Agenda --}}
+<div class="agendaSearch au-u-regular {{this.identifier}}">
+<div id="topAgendap" class="bottomtop"></div>
+{{!-- template-lint-disable no-invalid-interactive --}}
+<AuIcon class="toggle" @icon="cross" @alignment="left" @size="large" @ariaHidden={{true}} {{on "click" this.toggleClose}}/>
+<div class="au-o-box">
+<span class="au-u-h5 au-u-bold"> {{this.selected}} </span><Object::Population  @name="{{this.selected}}"/><br>
+<hr/>
+<SearchBar::Content::Agenda
+@selected={{this.selected}}
+/>
+{{!-- template-lint-disable no-log --}}
+{{!-- {{this.searchAgenda}} --}}
+{{!-- 
+<ul>
+{{#each this.singleselects as |options|}}
+<li><strong>{{options.groupName}}</strong>
+<ol>
+{{#each options.options as |product|}}
+<li>{{product}}
+{{#each this.searchAgenda as |item|}}
+{{#if (eq product item)}}
+<strong> | data avaliable {{item}}</strong>  
+{{/if}}
+{{/each}}
+</li>
+{{/each}}
+</ol>
+</li>
+{{/each}}
+</ul>
+ --}}
+{{!-- {{#each this.hasAgenda as |item|}}
+{{#if (eq @options item.bestuurseenheidnaam.value)}}
+<strong> | data avaliable {{item.bestuurseenheidnaam.value}}</strong>  
+{{/if}}
+{{/each}} --}}
+
+
+
+
+
+
+{{!-- 
+<span class="au-u-h5 au-u-bold">Agenda</span><br>
+<ul class="agendalist">
+{{#each @getAgendaSearch.groupAgenda as |geplande|}}
+<li>{{geplande.geplande_Date}} {{geplande.geplande_Time}} | {{geplande.location.value}}</li>
+{{/each}}
+</ul>
+<br>
+<span class="au-u-h5 au-u-bold">Agendalist</span><br>
+{{#each @getAgendaSearch.groupAgenda as |geplande|}}
+<AuIcon @icon="calendar" @size="medium" @ariaHidden={{true}} /><span class="au-u-h6">{{geplande.geplande_Date}}</span> 
+<AuIcon @icon="info-circle" @size="medium" @ariaHidden={{true}} /><span class="au-u-h6">{{geplande.geplande_Time}} | {{geplande.location.value}}</span><br>
+<AuCard @expandable={{true}} @flex={{true}} @divided={{true}} as |c|>
+  <c.header @badgeSkin="brand">
+   <AuHeading @level="6" @skin="6" class="au-card_text-blue">
+      {{geplande.bestuursclassificatie}} ({{geplande.details_Agenda.length}})
+    </AuHeading>
+  </c.header>
+  {{#each geplande.details_Agenda as | details|}}
+  <c.content>
+<p><span class="au-u-medium">{{details.title_agenda.value}}</span> <br> 
+{{#if details.description.value}}
+<span class="au-u-medium">Description:</span> {{details.description.value}} <br>
+{{/if}}
+</p>
+  </c.content>
+  {{/each}}
+</AuCard>
+<a href="#topAgendap" class="toTop"><AuIcon @icon="nav-up" @size="large" @ariaHidden={{true}} /></a>
+<br>
+{{/each}}
+ --}}
+
+</div>
+<div class="bottombox"></div>
+</div>

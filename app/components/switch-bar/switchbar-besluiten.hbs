@@ -1,0 +1,25 @@
+{{!-- <div class="au-c-form">
+  <AuToggleSwitch 
+  @label="Toon resultaatschem aan de linkerkant" @disabled={{false}} 
+  @name="switch-left-right"
+  @identifier={{this.identifier}}
+  @checked={{this.checked}}
+  @onChange={{this.onChange}}
+  />
+</div>
+ --}}
+{{!-- Don't delete/hide this cause it would show unexpected bar / don't know the reason --}}
+<div class="indexClick au-u-regular {{this.identifier}}">
+<div class="bottomtop"></div>
+
+<AuIcon class="toggle" @icon="cross" @alignment="left" @size="large" @ariaHidden={{true}}/>
+<div class="au-o-box au-o-box-left">
+<span class="au-u-h5 au-u-bold"> {{@getGemeente}} </span>
+</div>
+<div class="bottombox"></div>
+</div> 
+{{!-- Don't delete/hide this cause it would show unexpected bar / don't know the reason --}}
+
+
+
+

@@ -1,0 +1,669 @@
+//colors
+$white: white;
+$color_alto_approx: #ddd;
+$color_elephant_approx: #0e2b3c;
+$color_lynch_approx: #4b6586;
+$color_cape_cod_approx: #364b4a;
+$color_cape_cod_approx1: #7f8d99;
+$gray: grey;
+$color_martini_approx: #999;
+
+
+//fonts
+$font_4: sans-serif;
+
+* {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+.au-c-main-header {
+	z-index: 25;
+  }
+.autoload{
+	position:fixed;
+	width: 100vw;
+	height: 100vh;
+	z-index: 100;
+	// transform: translate(50%, 25%);
+}
+.search{
+	position: relative;
+	margin-top: 2.4rem;
+	width: 45%;
+	z-index: 10;
+	// background-color: aquamarine;
+}
+.hideInput{
+	display: none;
+}
+.au-c-form{
+	position: relative;
+	margin-top: 2rem;
+	.au-c-toggle-switch {
+		background-color: #f5f8fa;
+		padding: 1.5rem;
+		width: 35%;
+		border-radius: 0.3rem;
+	}
+}
+.au-c-form-switch{
+	position: absolute;
+	top: 7%;
+	right: 0rem;
+	width: 45%;
+	//margin-top: 2rem;
+	.au-c-toggle-switch {
+		padding: 1rem;
+		width: 100%;
+		border-radius: 0.3rem;
+	}
+}
+.au-c-bs-switch{
+	position: absolute;
+	top: 6%;
+	right: 0rem;
+	width: 55%;
+	//margin-top: 2rem;
+	.au-c-toggle-switch {
+		//background-color: #f5f8fa;
+		padding: 0.8rem;
+		width: 100%;
+		border-radius: 0.3rem;
+	}
+	.au-c-toggle-switch__label{
+		margin-right: 0.6rem;
+	}
+}
+.au-d-component-block{
+	padding-right: 2.4rem;
+    padding-left: 2.4rem;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 80vw;
+}
+.bp-map {
+	position: relative;
+	width: 100%;
+	// margin-top: -1rem;
+	align-items: center;
+	// background-color: palevioletred;
+	z-index: 0;
+}
+.provinces {
+	fill: none;
+	stroke: $color_elephant_approx;
+	stroke-width: 0.1rem;
+}
+.municipalities {
+	stroke: $color_lynch_approx;
+	&:hover {
+		fill: $color_cape_cod_approx;
+	}
+}
+path {
+	stroke: $white;
+	stroke-width: 0.08rem;
+}
+.legend, .legend_besluit{
+	stroke: $color_lynch_approx;
+	stroke-width: 0.1rem;
+}
+.text_legend{
+	font-size: 1.1rem;
+	color: $color_lynch_approx;
+}
+#tooltip {
+	position: absolute;
+	visibility: hidden;
+	pointer-events: none;
+	z-index: 100;
+	display: block;
+	transition: 0.1s;
+	transform: translate(2%, -50%);
+	height: auto;
+	width: auto;
+	background-color: $white;
+	color: $color_cape_cod_approx;
+	font: 1.5rem;
+	text-align: left;
+	padding: 0.8rem 1.1rem;
+	border-radius: 0.5rem;
+	box-shadow: 0.5rem 0.5rem 1rem -0.6rem $gray;
+	.fractie {
+		font-size: 1.5rem;
+		font-weight:500;
+	}
+	.gemeente {
+		font-size: 1.7rem;
+		font-weight:500;
+	}
+}
+cursor {
+	cursor: pointer;
+}
+.main_nav {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	z-index: 12;
+	background-color: $white;
+	ul {
+		width: 80%;
+		margin: auto;
+		display: flex;
+		text-align: center;
+		align-items: center;
+		justify-content: space-between;
+		li{
+			text-align: center;
+		}
+	}
+}
+// start content //
+.toggle {
+	margin-left: 2rem;
+	cursor: pointer; 
+}
+.bottomtop{
+	display: block;
+	height: 7vh;
+}
+.bottombox{
+	display: block;
+	height: 20vh;
+}
+hr{
+    margin-block-start:0.5em;
+    margin-block-end: 0.7em;
+	border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.hr{
+	width: 30%;
+}
+.clear{
+	clear: right;
+}
+.toTop{
+	float: right;
+	color: $color_martini_approx;
+}
+.location{
+  width: 12px;
+  height: 12px;
+  filter: invert(50%);
+}
+.icon-filter{
+	filter: invert(50%);
+}
+// indexpage
+.indexSearch {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100vh;
+	width: 50vw;
+	text-align: left;
+	font-size: 1.5rem;
+	line-height: 2.5rem;
+	font-weight: 100;
+	color: $color_elephant_approx;
+	box-shadow: -0.2rem 0.1rem 0.5rem $color_martini_approx;
+	background-color: $white;
+	overflow: scroll;
+	padding: 1rem;
+	z-index: 11;
+}
+.indexSearch--hidden{
+	display: none;
+}
+.indexSearch--visible{
+	visibility: visible;
+}
+.indexClick{
+	position: absolute;
+	visibility: hidden;
+}
+.radioBtn{
+	width: 100%;
+	display: inline-flex;
+	li{
+		/* width: 50%; */
+		text-align: center;
+	}
+	li:nth-child(1) {
+		width: 40%;
+	}
+	li:nth-child(2) {
+		width: 60%;
+	}
+}
+.testparams{
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100vh;
+	width: 100vw;
+	text-align: left;
+	font-size: 1.5rem;
+	line-height: 2.5rem;
+	font-weight: 100;
+	color: $color_elephant_approx;
+	box-shadow: -0.2rem 0.1rem 0.5rem $color_martini_approx;
+	background-color: $white;
+	overflow: scroll;
+	padding: 1rem;
+	z-index: 110;
+	.au-card-no-border{
+		border-width: 0rem;
+		padding: 0rem;
+	}
+	.aanwezig{
+		line-height: 2.4rem;
+		font-size: 1.5rem;
+		padding: 1.5rem 0;
+	}
+	&.hidden{
+		display: none;
+	}
+	&.visible{
+		visibility: visible;
+	}
+	.agendalist{
+		display: block;
+		ul{
+			text-align: left;
+		}
+		li{
+			line-height: 2.4rem;
+		}
+		span{
+			line-height: 2.4rem;
+		}
+	}
+}
+.besturen  {
+	position: absolute;
+	top: 0;
+	height: 100vh;
+	width: 40vw;
+	visibility: hidden;
+	line-height: 2.5rem;
+	color: $color_elephant_approx;
+	background-color: $white;
+	overflow: scroll;
+	z-index: 11;
+	.au-c-button--tertiary{
+		padding: 0;
+	}
+	&.hidden{
+		display: none;
+	}
+	&.visible{
+		visibility: visible;
+	}
+	&.bar-left{
+		left: 0;
+		box-shadow: 0.2rem 0.1rem 0.5rem $color_martini_approx;
+		direction: rtl;
+		.toggle {
+			// float: right;
+			cursor: pointer; 
+			margin-right: 2rem;
+		}
+		.au-o-box-left {
+			margin-left: 1.5rem;
+			padding-right: 1.5rem;
+			direction: ltr;
+		}
+		.au-c-bs-switch{
+			right: 5rem;
+		}
+	}
+	&.bar-right{
+		right: 0;
+		box-shadow: -0.2rem 0.1rem 0.5rem $color_martini_approx;	
+	}
+}
+// besturen
+.besturenSearch {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100vh;
+	width: 40vw;
+	line-height: 2.5rem;
+	color: $color_elephant_approx;
+	box-shadow: -0.2rem 0.1rem 0.5rem $color_martini_approx;
+	background-color: $white;
+	overflow: scroll;
+	padding: 1rem;
+	z-index: 11;
+	.au-c-button--tertiary{
+		padding: 0;
+	}
+    &.hidden{
+		display: none;
+	}
+	&.visible{
+		visibility: visible;
+	}
+}
+// agenda
+.agendaSearch, .besluitSearch, .archievenSearch {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100vh;
+	width: 50vw;
+	text-align: left;
+	font-size: 1.5rem;
+	line-height: 2.5rem;
+	font-weight: 100;
+	color: $color_elephant_approx;
+	box-shadow: -0.2rem 0.1rem 0.5rem $color_martini_approx;
+	background-color: $white;
+	overflow: scroll;
+	padding: 1rem;
+	z-index: 11;
+	.au-card-no-border{
+		border-width: 0rem;
+		padding: 0rem;
+	}
+	.aanwezig{
+		line-height: 2.4rem;
+		font-size: 1.5rem;
+		padding: 1.5rem 0;
+	}
+	&.hidden{
+		display: none;
+	}
+	&.visible{
+		visibility: visible;
+	}
+	.agendalist{
+		display: block;
+		ul{
+			text-align: left;
+		}
+		li{
+			line-height: 2.4rem;
+		}
+		span{
+			line-height: 2.4rem;
+		}
+	}
+}
+.archief, .archievenSearch{
+	.au-c-content > * + * {
+		margin-top: 1rem;
+	}
+}
+.intropage, .agenda, .besluit, .archief, .archieven {
+	position: absolute;
+	top: 0;
+	height: 100vh;
+	width: 50vw;
+	visibility: hidden;
+	line-height: 2.5rem;
+	color: $color_elephant_approx;
+	background-color: $white;
+	overflow: scroll;
+	padding: 1rem;
+	z-index: 11;
+	.au-card-no-border{
+		border-width: 0rem;
+		padding: 0rem;
+	}
+	.agendalist{
+		display: block;
+		ul{
+			text-align: left;
+		}
+		li{
+			line-height: 2.4rem;
+		}
+		span{
+			line-height: 2.4rem;
+		}
+	}
+	.aanwezig{
+		line-height: 2.4rem;
+		font-size: 1.5rem;
+		padding: 1.5rem 0;
+	}
+	&.bar-left{
+		left: 0;
+		box-shadow: 0.2rem 0.1rem 0.5rem $color_martini_approx;
+		direction: rtl;
+		.toggle {
+			// float: right;
+			cursor: pointer; 
+			margin-left: 0rem;
+			margin-right: 1.5rem;
+		}
+		.au-o-box-left {
+			margin-left: 1rem;
+			direction: ltr;
+		}
+		.au-c-form-switch{
+			right: 5rem;
+		}
+	
+	}
+	&.bar-right{
+		right: 0;
+		box-shadow: -0.2rem 0.1rem 0.5rem $color_martini_approx;	
+	}
+	.hidden{
+		display: none;
+	}
+	.visible{
+		visibility: visible;
+	}
+}
+// besluiten -- archieven
+.heeftstemming{
+	padding: 1rem 0;
+}
+.heeftstemmde{
+	margin: 0.3rem 0;
+	font-weight: 400;
+	font-size: 1.5rem;
+}
+.highlight{
+	width: 100%;
+	padding-top: 0rem;
+}
+.stemming{
+	display: inline-flex;
+	margin: 0 0.2rem;
+	align-items: center;
+	font-size: 1.5rem;
+	color: #364b4a;
+	line-height: 2.5rem;
+}
+.circle{
+	width: 0.8rem;
+	height: 0.8rem;
+	border-radius: 50%;
+	margin-right: 0.2rem;
+	line-height: 1rem;
+	justify-content: center;
+}
+.circle__green{
+	background-color: #8BAE00;
+}
+.circle__orange{
+	background-color: #FFC515;
+}
+.circle__red{
+	background-color: #D92626;
+}
+.au-card_text-blue{
+	color: $au-blue-600;
+	text-decoration-line: none;
+}
+.au-hl-blue{
+	color: $au-blue-700;
+	text-decoration-line: none;
+}
+.text-blue{
+	color: $au-blue-600;
+	cursor: pointer;
+	font-size: 1.5rem;
+}
+.text-grey{
+	color: $au-gray-600;
+	font-size: 1.5rem;
+}
+.hidevisible{
+	display: none;
+	
+}
+.au-c-modal-backdrop {
+    z-index: 14;
+}
+.au-c-modal {
+    z-index: 15;
+}
+
+@media only screen and(max-width: 1920px) {
+}
+@media only screen and(max-width: 1440px) {
+}
+@media only screen and(max-width: 1200px) {
+	.au-c-bs-switch{
+		width: 70%;
+	}
+	.au-c-form-switch{
+		width: 55%;
+	}
+}
+@media only screen and(max-width: 1024px) {
+	.search{
+		width: 55%;
+	}
+	.au-c-bs-switch {
+		width: 75%;
+	}
+	.au-c-form-switch{
+		width: 65%;
+	}
+
+}
+@media only screen and(max-width: 992px) {
+	.bp-map {
+		padding-top: 3rem;
+	}
+	.au-c-form{
+		.au-c-toggle-switch {
+			width: 50%;
+		}
+	}
+	.besturen, .besturenSearch{
+		width: 45vw;
+	}
+	.au-c-form-switch{
+		width: 70%;
+	}
+}
+@media only screen and(max-width: 800px) {
+	.search{
+		margin-top: 4.8rem;
+		width: 100%;
+	}
+	.au-c-bs-switch, .au-c-form-switch{
+		width: 85%;
+	}
+	.au-c-form{
+		margin-top: 1rem;
+		.au-c-toggle-switch {
+			padding: 1rem;
+			width: 60%;
+		}
+	}
+	.main_nav {
+		ul {
+			width: 90%;
+			transform: translate(5%, 0);
+		}
+	}
+	.besturen, .besturenSearch{
+		width: 50vw;
+	}
+}
+@media only screen and(max-width: 767px) {
+	.au-d-component-block{
+	max-width: 100vw;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+	}
+	.search{
+		margin: 3rem auto 1.8rem auto;
+		width: 100%;
+	}
+	.bp-map {
+		display: none;
+	}
+	.au-c-form {
+		display: none;
+	}
+	.main_nav {
+		display: none;
+	}
+	.bgNav{
+		display: none;
+	}
+	.nav{
+	width: 100%;
+	padding: 2.4rem;
+	font: 1em sans-serif;
+	}
+	.longtext{
+		display: inline-flex;
+		font-size: 1.5rem;
+	}
+	.indexSearch, .besturenSearch, .agendaSearch, .besluitSearch, .archievenSearch,.intropage, .agenda, .besluit, .archief, .archieven{
+		width: 100vw;
+		height: 100vh;
+	}
+}
+@media only screen and(max-width: 376px) {
+	.longtext{
+		font-size: 1.2rem;
+	}
+}
+@media screen and (min-height: 600px) and /* (max-width: 1024px), */ (max-width: 1440px) {
+	.bp-map {
+		transform: scale(0.80) translate(-0%, -22%);
+		}
+}
+@media screen and (min-height: 600px) and (max-width: 1280px) {
+	.bp-map {
+		transform: scale(0.95) translate(0, -5%);
+		}
+	.au-c-card--fill{
+		height: auto;
+	}
+}
+@media screen and (min-height: 600px) and (max-width: 1024px) {
+	.bp-map {
+		transform: scale(1)/*  translate(0, 5%) */;
+		}
+}
+@media screen and (min-height: 700px) and (max-width: 1440px) {
+	.bp-map {
+		transform: scale(0.95) translate(-0%, -5%);
+		}
+		
+}
+@media screen and (min-height: 700px) and (max-width: 1024px) {
+	.bp-map {
+		transform: translate(0%, 5%);
+		}
+	
+}
