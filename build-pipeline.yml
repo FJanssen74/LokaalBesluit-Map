@@ -17,21 +17,21 @@ steps:
       versionSpec: '8.x'
     displayName: 'Install Node.js'
 
-- script: |
+  - script: |
     npm install -g ember-cli
-  displayName: 'ember-cli install'
+    displayName: 'ember-cli install'
  
-- script: |
+  - script: |
     ember build
-  displayName: 'ember'
+    displayName: 'ember'
  
-- task: CopyFiles@2
-  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
-  inputs:
-    SourceFolder: 'dist'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  - task: CopyFiles@2
+    displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+    inputs:
+      SourceFolder: 'dist'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: dist
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      artifactName: dist
