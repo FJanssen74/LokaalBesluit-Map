@@ -12,18 +12,17 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: UseRubyVersion@0
-  inputs:
-    versionSpec: '>= 2.5'
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '8.x'
+    displayName: 'Install Node.js'
 
 - script: |
     npm install -g ember-cli
-    bundle install --retry=3 --jobs=4
   displayName: 'ember-cli install'
  
 - script: |
-    bundle install
-    bundle exec ember build
+    ember build
   displayName: 'ember'
  
 - task: CopyFiles@2
