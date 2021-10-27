@@ -18,11 +18,11 @@ steps:
     displayName: 'Install Node.js'
 
   - script: |
-    npm install -g ember-cli
+      npm install -g ember-cli
     displayName: 'ember-cli install'
  
   - script: |
-    ember build
+      ember build
     displayName: 'ember'
  
   - task: CopyFiles@2
